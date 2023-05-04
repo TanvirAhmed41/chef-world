@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 const Register = () => {
   return (
     <div className="container my-4 ">
-     <div>
+     <div className="w-50 mx-auto border p-4 rounded-3 shadow-lg">
      <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
@@ -44,11 +44,8 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+        <Button variant="primary" type="submit" className="w-100 fw-bold fs-5">
+          Register
         </Button>
       </Form>
      </div>
