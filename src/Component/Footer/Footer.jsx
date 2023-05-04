@@ -4,14 +4,15 @@ import ListGroup from 'react-bootstrap/ListGroup';
 const Footer = () => {
   return (
     <section className="bg-dark py-5">
-      <div className="container row row-cols-3 g-5 " >
+      <div className="container row row-cols-md-3 g-5 " >
         <div>
           <h2 className="text-white mb-4 ">Chef-World</h2>
           <p className="text-light">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, qui
-            cumque quisquam id accusantium assumenda error nihil. Et placeat
-            quod commodi porro voluptates alias ipsum error aperiam, sed minima
-            possimus.
+          Welcome to Chef World, your ultimate destination for exploring the
+          diverse and delicious world of international cuisine. Our platform
+          brings together a community of passionate food enthusiasts and expert
+          chefs from all corners of the globe, to help you discover new flavors,
+          ingredients, and cooking techniques.
           </p>
         </div>
         <div className="">

@@ -3,11 +3,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link} from "react-router-dom";
 import { FaGithub,FaGoogle } from 'react-icons/fa';
+import "./Login.css"
 
 const Login = () => {
   return (
     <div className="container mt-4 ">
-     <div className="w-50 mx-auto border p-4 rounded-3 shadow-lg">
+     <div className=" login-form mx-auto border p-4 rounded-3 shadow-lg">
      <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

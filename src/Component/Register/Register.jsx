@@ -1,11 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "../Login/Login.css"
 
 const Register = () => {
   return (
     <div className="container my-4 ">
-     <div className="w-50 mx-auto border p-4 rounded-3 shadow-lg">
+     <div className="login-form mx-auto border p-4 rounded-3 shadow-lg">
      <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
