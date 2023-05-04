@@ -1,11 +1,14 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link} from "react-router-dom";
+import { FaGithub,FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
   return (
-    <div className="container mt-4">
-      <Form>
+    <div className="container mt-4 ">
+     <div className="w-50 mx-auto border p-4 rounded-3 shadow-lg">
+     <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -14,7 +17,7 @@ const Login = () => {
             placeholder="Enter email"
             required
           />
-          <Form.Text className="text-muted"></Form.Text>
+        
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -26,13 +29,20 @@ const Login = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+        <Button variant="primary" type="submit" className="w-100 fw-semibold">
+          Log In
         </Button>
+
       </Form>
+      <p className="mt-3 text-center">
+      <Link to="/registration" > Don't have an account? </Link>
+      </p>
+      <p className="mt-3 text-center">Or Sign Up</p>
+      <div className="mt-3 text-center">
+        <button className="border-0 text-bg-danger py-1 px-2 rounded-2 me-3"><FaGoogle></FaGoogle></button>
+        <button className="border-0 text-bg-dark py-1 px-2 rounded-2 "><FaGithub></FaGithub></button>
+      </div>
+     </div>
     </div>
   );
 };

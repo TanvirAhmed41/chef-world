@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form"
+import Form from "react-bootstrap/Form";
 
 const Register = () => {
-    return (
-        <div>
-            <Form>
+  return (
+    <div className="container my-4 ">
+     <div>
+     <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -50,8 +51,9 @@ const Register = () => {
           Submit
         </Button>
       </Form>
-        </div>
-    );
+     </div>
+    </div>
+  );
 };
 
 export default Register;
