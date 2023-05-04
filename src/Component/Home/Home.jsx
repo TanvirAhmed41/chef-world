@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import SingleChefCard from "../SingelChefCard/SingleChefCard";
 import banner from "../../assets/banner.jpg";
+import "./Home.css"
+
 
 const Home = () => {
+    const [chefsData, setChefsData] = useState([]);
+    useEffect(() => {
+      fetch("http://localhost:5000/chefs")
+        .then((res) => res.json())
+        .then((data) => setChefsData(data));
+    }, []);
   return (
-    <div
+  <>
+   <div
       style={{
         backgroundImage: `linear-gradient(#0000008f,#0000008f),url(${banner})`,
         padding: "150px 0px 150px 0px",
@@ -26,6 +36,16 @@ const Home = () => {
         </p>
       </div>
     </div>
+   
+    <div className="container row row-cols-md-3 ">
+    {chefsData &&
+          chefsData.map((singleChef) => (
+            <SingleChefCard singleChef={singleChef}></SingleChefCard>
+          ))}
+    </div>
+    
+  </>
+
   );
 };
 
