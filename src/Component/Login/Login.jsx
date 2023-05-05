@@ -7,8 +7,12 @@ import "./Login.css"
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useNavigate, useLocation } from "react-router-dom";
 
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+
 const Login = () => {
-  const {handleLogin} = useContext(AuthContext)
+  const {handleLogin,githubLogin,googleLogin} = useContext(AuthContext)
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const [error, setError] = useState("");
   const location = useLocation();
   const from = location?.state?.from?.pathname;
@@ -30,6 +34,24 @@ const Login = () => {
       setError(error.message)
     })
   }
+  const handleGoogleLogin = () => {
+    googleLogin(googleProvider)
+      .then((result) => {
+        location("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleGithubLogin = () => {
+    githubLogin(githubProvider)
+      .then((result) => {
+        location("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="container mt-4 ">
      <div className=" login-form mx-auto border p-4 rounded-3 shadow-lg">
@@ -64,8 +86,8 @@ const Login = () => {
       </p>
       <p className="mt-3 text-center">Or Sign Up</p>
       <div className="mt-3 text-center">
-        <button className="border-0 text-bg-danger py-1 px-2 rounded-2 me-3"><FaGoogle></FaGoogle></button>
-        <button className="border-0 text-bg-dark py-1 px-2 rounded-2 "><FaGithub></FaGithub></button>
+        <button onClick={handleGoogleLogin} className="border-0 text-bg-danger py-1 px-2 rounded-2 me-3"><FaGoogle></FaGoogle></button>
+        <button onClick={handleGithubLogin} className="border-0 text-bg-dark py-1 px-2 rounded-2 "><FaGithub></FaGithub></button>
       </div>
       <p className="text-danger">{error}</p>
      </div>

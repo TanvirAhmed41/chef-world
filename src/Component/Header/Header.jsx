@@ -38,7 +38,7 @@ function Header() {
           <Form className="d-flex">
            {
             user ? <div>
-              <img style={{width:'40px',height:"40px", borderRadius:"50%",marginRight:"15px"}} src={user.photoURL} alt="" />
+              <img title={user.displayName} style={{width:'40px',height:"40px", borderRadius:"50%",marginRight:"15px"}} src={user.photoURL} alt="" />
               <button onClick={handleLogOut} className="btn btn-success">Log Out</button>
             </div>: <Link to="/login">
             <button className="btn btn-success">Log In</button>

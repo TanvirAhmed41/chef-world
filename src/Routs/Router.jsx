@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: '/chef/:id',
                 element: <PrivateRoute><ChefsRecipe></ChefsRecipe></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:5000/chef/${params.id}`)
+                loader: ({params})=>fetch(`https://chef-recipe-biit.onrender.com/chef/${params.id}`)
             }
         ]
     },
