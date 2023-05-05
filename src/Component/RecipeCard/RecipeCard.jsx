@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import ChickenImg from "../../assets/chickenRice.jpeg"
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 
 
 const RecipeCard = ({ recipe }) => {

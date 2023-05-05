@@ -5,9 +5,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, NavLink} from "react-router-dom";
 import "./Header.css"
+import { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 function Header() {
+  const {user} = useContext(AuthContext)
   return (
     <Navbar bg="light" expand="lg" className='py-3'>
       <Container>
@@ -23,9 +26,14 @@ function Header() {
             <NavLink to="/blog"className={({isActive})=>isActive?"active":""}>Blog</NavLink>
           </Nav>
           <Form className="d-flex">
-            <Link to="/login">
-                <button className="btn btn-success">Log In</button>
-            </Link>
+           {
+            user ? <div>
+              <img style={{width:'40px',height:"40px", borderRadius:"50%",marginRight:"15px"}} src={user.photoURL} alt="" />
+              <button className="btn btn-success">Log Out</button>
+            </div>: <Link to="/login">
+            <button className="btn btn-success">Log In</button>
+        </Link>
+           }
           </Form>
         </Navbar.Collapse>
       </Container>

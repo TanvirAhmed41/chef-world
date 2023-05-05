@@ -4,10 +4,12 @@ import Form from "react-bootstrap/Form";
 import "../Login/Login.css";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import {  useNavigate } from "react-router-dom";
 
 
 const Register = () => {
   const { handleSignUp } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const handleRegister = (event) => {
     event.preventDefault();
@@ -16,6 +18,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photoUrl = form.photo.value;
+    console.log(form,name);
    
     setError("");
     if (password.length < 6) {
@@ -29,9 +32,11 @@ const Register = () => {
         console.log(createUser);
         handleUpdate(createUser, name, photoUrl);
         form.reset();
+        navigate("/")
       })
       .catch((error) => {
         console.error(error);
+        setError(error.message)
       });
   };
   const handleUpdate = (createUser, name, photoUrl) => {
@@ -42,8 +47,8 @@ const Register = () => {
   return (
     <div className="container my-4 ">
       <div className="login-form mx-auto border p-4 rounded-3 shadow-lg">
-        <Form onClick={handleRegister}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form onSubmit={handleRegister}>
+          <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
@@ -52,7 +57,7 @@ const Register = () => {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicPhoto">
             <Form.Label>Photo Url</Form.Label>
             <Form.Control
               type="text"
@@ -81,10 +86,10 @@ const Register = () => {
               required
             />
           </Form.Group>
-          <input type="submit" value="Register"
-            className="w-100 fw-bold fs-5" >
-            
-          </input>
+          <button type="submit"
+            className="w-100 fw-bold fs-5 btn btn-primary" >
+            Register
+          </button>
         </Form>
         <p className="text-danger">{error}</p>
       </div>
