@@ -3,6 +3,7 @@ import Experience from "../../assets/value-proposal.png";
 import Likes from "../../assets/like.png";
 import Recipes from "../../assets/mix.png";
 import { Link } from "react-router-dom";
+import LazyLoad from 'react-lazy-load';
 
 const SingleChefCard = ({ singleChef }) => {
   console.log(singleChef);
@@ -19,12 +20,15 @@ const SingleChefCard = ({ singleChef }) => {
     <div className="my-4">
       <div className="col">
         <div className="card h-100">
-          <img
+        <LazyLoad>
+        <img
             src={chef_picture}
             className="card-img-top"
             style={{ height: "250px" }}
             alt="..."
           />
+    </LazyLoad>
+         
           <div className="card-body">
             <h5 className="card-title">{chef_name}</h5>
             <p className="card-text">{bio.slice(0, 80)}...</p>
