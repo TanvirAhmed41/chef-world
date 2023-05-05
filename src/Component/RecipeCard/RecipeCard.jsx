@@ -1,23 +1,9 @@
 import React from "react";
-import Experience from "../../assets/value-proposal.png";
-import Likes from "../../assets/like.png";
-import Recipes from "../../assets/mix.png";
-import { Link } from "react-router-dom";
 
-const SingleChefCard = ({ singleChef }) => {
-  console.log(singleChef);
-  const {
-    chef_picture,
-    chef_name,
-    years_of_experience,
-    num_recipes,
-    likes,
-    id,
-    bio,
-  } = singleChef;
+const RecipeCard = ({recipe}) => {
   return (
-    <div className="my-4">
-      <div class="col">
+    <div>
+      {/* <div class="col">
         <div class="card h-100">
           <img
             src={chef_picture}
@@ -47,13 +33,13 @@ const SingleChefCard = ({ singleChef }) => {
           </div>
           <div class="card-footer border-0">
             <Link to={`/chef/${id}`}>
-              <button className="btn btn-primary ">View Recipes</button>
+              <button className="btn btn-primary ">View Recipies</button>
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default SingleChefCard;
+export default RecipeCard;

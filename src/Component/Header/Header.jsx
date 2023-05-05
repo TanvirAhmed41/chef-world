@@ -11,7 +11,7 @@ function Header() {
   return (
     <Navbar bg="light" expand="lg" className='py-3'>
       <Container>
-        <Navbar.Brand href="#">Chef World</Navbar.Brand>
+        <Navbar.Brand href="#"><span className='fw-bold fs-3'>Chef World</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

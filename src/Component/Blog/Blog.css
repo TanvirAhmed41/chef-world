@@ -1,0 +1,46 @@
+ .item {
+    padding: 24px;
+  
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 24px;
+    row-gap: 15px;
+    align-items: center;
+  }
+  .number,
+  .text {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .number {
+    color: #2b336162;
+  }
+  .hidden-box {
+    grid-column: 2;
+    display: none;
+  }
+  .hidden-box p {
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .hidden-box ul {
+    color: #8b9686;
+    margin-left: 18px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* OPEN STATE */
+  
+  .open .hidden-box {
+    display: block;
+  }
+  
+  .open .number,
+  .open .text {
+    color: #372387;
+  }
+  

@@ -4,6 +4,7 @@ import Cover from "../../assets/cover.jpg";
 import Experience from "../../assets/value-proposal.png";
 import Likes from "../../assets/like.png";
 import Recipes from "../../assets/mix.png";
+import RecipeCard from "../RecipeCard/RecipeCard";
 
 const ChefsRecipe = () => {
   const chefsData = useLoaderData();
@@ -37,8 +38,8 @@ const ChefsRecipe = () => {
             <img className="w-100" src={chef_picture} alt="" />
           </div>
           <div className="col-md-6 ">
-            <h5 class="card-title">{chef_name}</h5>
-            <p class="card-text">{bio.slice(0, 80)}...</p>
+            <h5 className="card-title">{chef_name}</h5>
+            <p className="card-text">{bio.slice(0, 80)}...</p>
             <div>
               <p className="mb-1 ">
                 <img src={Experience} className="me-1" /> Experience{" "}
@@ -57,6 +58,13 @@ const ChefsRecipe = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section  className="container mt-5 mb-5">
+            <div className="row row-cols-1 row-cols-md-3 g-4">
+                {
+                    ViewRecipes.map((rc, index)=><RecipeCard key={index} recipe={rc}></RecipeCard>)
+                }
+            </div>
       </section>
     </>
   );
