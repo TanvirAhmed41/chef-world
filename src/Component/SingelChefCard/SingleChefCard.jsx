@@ -1,8 +1,7 @@
 import React from "react";
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { FaThumbsUp,FaClock,FaFreebsd } from "react-icons/fa";
-import { Link} from "react-router-dom";
+import Experience from "../../assets/value-proposal.png"
+import Likes from "../../assets/like.png"
+import Recipes from "../../assets/mix.png"
 
 
 const SingleChefCard = ({ singleChef }) => {
@@ -12,30 +11,32 @@ const SingleChefCard = ({ singleChef }) => {
     chef_name,
     years_of_experience,
     num_recipes,
-    rating,
     likes,
     id,
+    bio
   } = singleChef;
   return (
     <div className="my-4">
-        <Card style={{ width: '18rem' , height:'23rem' }}>
-    <Card.Img variant="top" className="img-fluid h-100 " src={chef_picture}/>
-    <Card.Body >
-      <Card.Title>{chef_name}</Card.Title>
-    <div className="d-flex justify-content-between">
-    <Card.Text>
-      <span><FaClock></FaClock></span> {years_of_experience}
-      </Card.Text>
-      <Card.Text>
-       <span><FaThumbsUp></FaThumbsUp></span> {likes}
-      </Card.Text>
-      <Card.Text>
-      <span><FaFreebsd></FaFreebsd></span> {num_recipes}
-      </Card.Text>
+        <div class="">
+  <div class="col">
+    <div class="card h-100">
+      <img src={chef_picture} class="card-img-top" style={{height:'250px'}} alt="..."/>
+      <div class="card-body">
+        <h5 class="card-title">{chef_name}</h5>
+        <p class="card-text">{bio.slice(0,80)}...</p>
+        <div>
+            <p  className="mb-1 "><img src={Experience} className="me-1"/> Experience {years_of_experience}</p>
+            <p className="mb-1"> <img src={Recipes} className="me-1"/>Recipes {num_recipes}</p>
+            <p className="mb-1"> <img src={Likes} className="me-1"/>Likes {likes}</p>
+        </div>
+        
+      </div>
+      <div class="card-footer border-0">
+        <button className="btn btn-primary ">View Recipies</button>
+      </div>
     </div>
-      <Link to={`/chefs/${id}`}><Button  variant="primary">View Details</Button></Link>
-    </Card.Body>
-  </Card>
+  </div>
+</div>
     </div>
   )
   

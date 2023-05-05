@@ -37,7 +37,7 @@ const Home = () => {
       </div>
     </div>
    
-    <div className="container row row-cols-md-3 ">
+    <div className="container row row-cols-1 row-cols-md-3 g-4 mx-auto pt-5">
     {chefsData &&
           chefsData.map((singleChef) => (
             <SingleChefCard singleChef={singleChef}></SingleChefCard>
