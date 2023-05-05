@@ -2,6 +2,7 @@ import React from "react";
 import Experience from "../../assets/value-proposal.png"
 import Likes from "../../assets/like.png"
 import Recipes from "../../assets/mix.png"
+import { Link} from "react-router-dom";
 
 
 const SingleChefCard = ({ singleChef }) => {
@@ -32,7 +33,7 @@ const SingleChefCard = ({ singleChef }) => {
         
       </div>
       <div class="card-footer border-0">
-        <button className="btn btn-primary ">View Recipies</button>
+        <Link to={`/chef/${id}`}><button className="btn btn-primary ">View Recipies</button></Link>
       </div>
     </div>
   </div>
