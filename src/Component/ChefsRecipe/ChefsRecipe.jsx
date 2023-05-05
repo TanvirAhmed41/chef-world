@@ -62,7 +62,7 @@ const ChefsRecipe = () => {
       <section  className="container mt-5 mb-5">
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {
-                    ViewRecipes.map((rc, index)=><RecipeCard key={index} recipe={rc}></RecipeCard>)
+                    recipes.map((rc, index)=><RecipeCard key={index} recipe={rc}></RecipeCard>)
                 }
             </div>
       </section>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import SingleChefCard from "../SingelChefCard/SingleChefCard";
 import banner from "../../assets/banner.jpg";
 import "./Home.css"
+import AboutUs from "../AboutUs/AboutUs";
+import Gallery from "../Gallery/Gallery";
 
 
 const Home = () => {
@@ -36,10 +38,13 @@ const Home = () => {
             <SingleChefCard singleChef={singleChef} key={singleChef}></SingleChefCard>
           ))}
     </div>
+    <AboutUs></AboutUs>
+    <Gallery></Gallery>
     
   </>
-
+  
   );
+            
 };
 
 export default Home;

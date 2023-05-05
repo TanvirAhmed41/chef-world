@@ -17,17 +17,17 @@ const SingleChefCard = ({ singleChef }) => {
   } = singleChef;
   return (
     <div className="my-4">
-      <div class="col">
-        <div class="card h-100">
+      <div className="col">
+        <div className="card h-100">
           <img
             src={chef_picture}
-            class="card-img-top"
+            className="card-img-top"
             style={{ height: "250px" }}
             alt="..."
           />
-          <div class="card-body">
-            <h5 class="card-title">{chef_name}</h5>
-            <p class="card-text">{bio.slice(0, 80)}...</p>
+          <div className="card-body">
+            <h5 className="card-title">{chef_name}</h5>
+            <p className="card-text">{bio.slice(0, 80)}...</p>
             <div>
               <p className="mb-1 ">
                 <img src={Experience} className="me-1" /> Experience{" "}
@@ -45,9 +45,9 @@ const SingleChefCard = ({ singleChef }) => {
               </p>
             </div>
           </div>
-          <div class="card-footer border-0">
+          <div className="card-footer border-0">
             <Link to={`/chef/${id}`}>
-              <button className="btn btn-primary ">View Recipes</button>
+              <button className="btn btn-success fw-semibold ">View Recipes</button>
             </Link>
           </div>
         </div>

@@ -1,43 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaHeart } from "react-icons/fa";
+import ChickenImg from "../../assets/chickenRice.jpeg"
+import { ToastContainer, toast } from 'react-toastify';
 
-const RecipeCard = ({recipe}) => {
+
+const RecipeCard = ({ recipe }) => {
+
+  const [disabled,setDisabled]=useState(false)
+  console.log(recipe);
+  const {ingredients, recipe_name,cooking_method } = recipe;
+
+  const handleToast = ()=>{
+    setDisabled(true)
+    return toast("Added to Favorite")
+  }
+
   return (
     <div>
-      {/* <div class="col">
-        <div class="card h-100">
-          <img
-            src={chef_picture}
-            class="card-img-top"
-            style={{ height: "250px" }}
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">{chef_name}</h5>
-            <p class="card-text">{bio.slice(0, 80)}...</p>
-            <div>
-              <p className="mb-1 ">
-                <img src={Experience} className="me-1" /> Experience{" "}
-                {years_of_experience}
-              </p>
-              <p className="mb-1">
-                {" "}
-                <img src={Recipes} className="me-1" />
-                Recipes {num_recipes}
-              </p>
-              <p className="mb-1">
-                {" "}
-                <img src={Likes} className="me-1" />
-                Likes {likes}
-              </p>
-            </div>
-          </div>
-          <div class="card-footer border-0">
-            <Link to={`/chef/${id}`}>
-              <button className="btn btn-primary ">View Recipies</button>
-            </Link>
-          </div>
+      <div className="card " style={{width:'18rem',height:"52rem"}}>
+        <img src={ChickenImg} alt="" />
+        <div  className="card-body">
+        <h1 className="card-title">{recipe_name}</h1>
+        <ul>{
+          ingredients.map((ing)=><li >{ing}</li>)
+          }
+          </ul>
+          <p>{cooking_method}</p>
+          
         </div>
-      </div> */}
+        <div>
+          <button onClick={handleToast} className={` btn btn-primary ${disabled ? "disabled" : "" } `} href="#">
+            {" "}
+            <FaHeart></FaHeart>Favorite
+          </button>
+          </div>
+      </div>
     </div>
   );
 };
