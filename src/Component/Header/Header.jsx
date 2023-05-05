@@ -10,7 +10,17 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 function Header() {
-  const {user} = useContext(AuthContext)
+  const {user,logOut} = useContext(AuthContext)
+  const handleLogOut =()=>{
+    logOut()
+    .then(()=>{
+
+    })
+    .catch(error =>{
+      console.log(error);
+
+    })
+  }
   return (
     <Navbar bg="light" expand="lg" className='py-3'>
       <Container>
@@ -29,7 +39,7 @@ function Header() {
            {
             user ? <div>
               <img style={{width:'40px',height:"40px", borderRadius:"50%",marginRight:"15px"}} src={user.photoURL} alt="" />
-              <button className="btn btn-success">Log Out</button>
+              <button onClick={handleLogOut} className="btn btn-success">Log Out</button>
             </div>: <Link to="/login">
             <button className="btn btn-success">Log In</button>
         </Link>

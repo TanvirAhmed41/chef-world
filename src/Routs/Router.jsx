@@ -5,11 +5,13 @@ import MainLayout from "../Layout/MainLayout/MainLayout";
 import Login from "../Component/Login/Login";
 import Register from "../Component/Register/Register";
 import ChefsRecipe from "../Component/ChefsRecipe/ChefsRecipe";
+import ErrorPage from "../Component/Error/ErrorPage";
+import PrivateRoute from "../Component/PrivateRoute/PrivateRoute";
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
-        errorElement: <Error></Error>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/chef/:id',
-                element: <ChefsRecipe></ChefsRecipe>,
+                element: <PrivateRoute><ChefsRecipe></ChefsRecipe></PrivateRoute>,
                 loader: ({params})=>fetch(`http://localhost:5000/chef/${params.id}`)
             }
         ]

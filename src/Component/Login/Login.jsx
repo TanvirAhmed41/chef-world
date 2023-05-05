@@ -5,10 +5,14 @@ import { Link} from "react-router-dom";
 import { FaGithub,FaGoogle } from 'react-icons/fa';
 import "./Login.css"
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
   const {handleLogin} = useContext(AuthContext)
   const [error, setError] = useState("");
+  const location = useLocation();
+  const from = location?.state?.from?.pathname;
+  const navigate = useNavigate();
   const handleLoginInfo =(event)=>{
     event.preventDefault();
     const form = event.target;
@@ -19,6 +23,7 @@ const Login = () => {
     .then(result =>{
       console.log(result);
       form.reset()
+      navigate (from)
     })
     .catch(error=>{
       console.log(error);

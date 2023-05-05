@@ -33,7 +33,9 @@ const Home = () => {
     </div>
    
     <div className="container row row-cols-1 row-cols-md-3 g-4 mx-auto pt-5">
-    {chefsData &&
+    {chefsData.length == 0 ?<div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>: 
           chefsData.map((singleChef) => (
             <SingleChefCard singleChef={singleChef} key={singleChef}></SingleChefCard>
           ))}
